@@ -13,6 +13,7 @@ import {EventContextProvider} from './src/components/form/lib/EventContext';
 import {API_BASE} from '@env';
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
+import './src/assets/i18n/i18n';
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -36,7 +37,7 @@ i18n
   });
 console.log('API_URL', API_BASE);
 
-export const FONT_FAMILY = 'Neue Haas Unica';
+export const FONT_FAMILY = 'Poppins';
 
 const theme = createTheme({
   lightColors: {
