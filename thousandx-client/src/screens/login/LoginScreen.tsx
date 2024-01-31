@@ -22,6 +22,17 @@ export const LoginScreen: Screen<'Login'> = ({route}) => {
             <Form.Items
               schema={[
                 {
+                  id: 'name',
+                  type: 'email',
+                  name: 'Name',
+                  props: {placeholder: 'Name'},
+                  options: {
+                    rules: [
+                      {required: true, message: 'Name is required'},
+                    ],
+                  },
+                },
+                {
                   id: 'username',
                   type: 'email',
                   name: 'Username',
