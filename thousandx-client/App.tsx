@@ -220,18 +220,73 @@
 
 // export default App;
 
-import { StyleSheet, Text, View } from 'react-native'
+import { Button } from '@rneui/themed'
 import React from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
-const App = () => {
+// import C4 from './src/screens/C4'
+// import C5 from './src/screens/C5'
+
+function App(): JSX.Element  {
   return (
-    <View>
-      <Text>App</Text>
+    <View style={styles.container}>
+      <View style={styles.flex1}>
+
+      <Image style={styles.img}
+      source={
+        require('./src/assets/appImages/1_signin.png')
+      }/>
+    </View>
+
+    <View style={styles.flex2}>
+    <Button style={[styles.buttonStyle,styles.buttonContainerStyle]}
+              title="Explore Now" />
+
+    <Button style={[styles.buttonStyle,styles.buttonContainerStyle]}
+              title="Sign In" />  
+
+     
+
+    </View>
+      
     </View>
   )
 }
 
+const styles = StyleSheet.create({
+  container:{
+    // flex:1,
+    padding:8,
+    backgroundColor:'white',
+  },
+  img:{
+    width:210,
+    height:310,
+    
+  },
+  flex1:{
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  flex2:{
+    // justifyContent:'center',
+    // alignItems:'center',
+  },
+  buttonStyle:{
+    marginTop:50,
+    backgroundColor: 'rgba(78, 116, 289, 1)',
+    borderRadius: 15,
+  },
+  buttonContainerStyle:{
+    width: 200,
+    // marginTop:50,
+    marginHorizontal: 5,
+    marginVertical: 10,
+  },
+
+})
+
 export default App
 
-const styles = StyleSheet.create({})
+
 
