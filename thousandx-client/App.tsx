@@ -223,17 +223,20 @@
 import { Button } from '@rneui/themed'
 import React from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import CustomButton from './src/components/customButton'
+
 import { Colors } from './src/utils/Colors'
 import SignIn_C4 from './src/screens/SignIn_C4'
 import ReqOTP_C5 from './src/screens/ReqOTP_C5'
+import Verification_C6 from './src/screens/Verification_C6'
 
 const App = () => {
   return (
     <View>
-      {/* <SignIn_C4/> */}
+      {/* <SignIn_C4/> 
 
-      <ReqOTP_C5 />
+     <ReqOTP_C5 /> */}
+
+      <Verification_C6 />
 
     </View>
   )
