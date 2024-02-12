@@ -17,6 +17,7 @@
     "@rneui/base": "^4.0.0-rc.8",
     "@rneui/themed": "^4.0.0-rc.8",
     "@sezenta/react-native-connection": "^0.0.17",
+    "antd": "^5.14.0",
     "axios": "^1.6.3",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
