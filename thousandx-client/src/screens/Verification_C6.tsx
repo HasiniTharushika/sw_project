@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import { ScrollView, TouchableOpacity } from '../components/rneui';
 import { Colors } from '../utils/Colors';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const NumberInputComponent: React.FC = () => {
   const handleInputChange = (text: string, index: number) => {
@@ -23,7 +24,7 @@ const NumberInputComponent: React.FC = () => {
 
         <View style={styles.Icon}>
           <TouchableOpacity >
-            <AntDesign name="arrowleft" size={24} color='black' />
+          <AntDesign name='left' size={30} color={Colors.PrimaryBlack}/>
           </TouchableOpacity>
         </View>
 
