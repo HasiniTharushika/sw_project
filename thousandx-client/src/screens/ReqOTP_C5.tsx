@@ -1,173 +1,156 @@
-import React from 'react'
-import { Image, KeyboardAvoidingViewComponent, StyleSheet, Text, TextInput, View } from 'react-native'
-// import Icon  from 'react-native-vector-icons/AntDesign';
+import React, { useState } from 'react';
+import { View, TextInput, Button, StyleSheet,Image } from 'react-native';
+import {  ScrollView, Text, TouchableOpacity } from '../components/rneui';
 import { Colors } from '../utils/Colors';
-import { KeyboardAvoidingView, ScrollView, TouchableOpacity } from '../components/rneui';
-import { fonts } from '@rneui/base';
-import { Button, DatePicker, Input } from 'antd';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { Icon } from '@rneui/themed';
 
-function Arrow_Icon() {
+const ReqOTP: React.FC = () => {
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
+
+  const handleInputChange = (text: string) => {
+    // Allow only numeric input and limit to 10 characters
+    const sanitizedText = text.replace(/[^0-9]/g, '').slice(0, 10);
+    setPhoneNumber(sanitizedText);
+  };
+
+  const handleButtonClick = () => {
+    console.log('Phone Number:', phoneNumber);
+  };
+
   return (
-    <View style={styles.iconView}>
-      {/* <Icon name={'arrow-forward'} color={Colors.PrimaryBlue} type='ionicon' /> */}
-      <TouchableOpacity className="ml-3 mr-2">
-        <AntDesign
-          name="arrowleft"
-          size={25}
-          // Inline Css added Unable to add Tailwind Css
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{
-            width: 30,
-            height: 30,
-            left: 20,
-            color: 'black',
-            alignContent: 'center',
-          }}
-        />
-      </TouchableOpacity>
-    </View>
+    <ScrollView>
+      <View style={styles.container} >
+      
+        <View style={styles.Icon}>
+          <TouchableOpacity >
+          <AntDesign name='left' size={30} color={Colors.PrimaryBlack}/>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.midContainer}>
+          <View style={styles.header}>
+            <Text style={styles.h1} >
+            
+            Welcome back!</Text>
+            <Text style={styles.h2}>Login to your account</Text>
+          </View>
+
+          <View style={styles.imgContainer}>
+            <Image
+              style={styles.img}
+              source={
+                require('../assets/appImages/2_reqotp.png')
+              } />
+          </View>
+
+          <View style={styles.inputFields}>
+            <Text style={{ paddingBottom: 10 }}>Enter your mobile number</Text>
+            <View style={styles.numberContainer} >
+              <Text >+94</Text>
+              <TextInput
+                style={styles.input}
+                keyboardType="numeric"
+                // placeholder="Enter 10-digit number"
+                maxLength={10}
+                value={phoneNumber}
+                onChangeText={handleInputChange}
+              />
+            </View>
+
+          </View>
+
+          <TouchableOpacity>
+            <Text style={styles.buttonStyle}>Request OTP</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
+    </ScrollView>
   );
-}
-
-function OTP_Feild() {
-  return (
-    <View style={styles.OTP_FeildView}>
-
-      <Text style={{paddingLeft:20,fontFamily: 'Poppins'}}>Enter your mobile number</Text>
-      <View style={styles.otp}>
-        <TextInput style={{
-          fontSize: 15,
-        }} />
-      </View>
-
-      <View>
-        <TouchableOpacity>
-          <Text style={styles.buttonStyle}>Request OTP</Text>
-        </TouchableOpacity>
-      </View>
-
-    </View>
-  );
-}
-
-
-
-const ReqOTP_C5 = () => {
-  return (
-   <ScrollView>
-    <View style={styles.mainContainer}>
-      
-      <Arrow_Icon />
-      <View style={styles.header}>
-        <Text style={styles.h1}>Welcome back!</Text>
-        <Text style={styles.h2}>Login to your account</Text>
-      </View>
-
-      {/* <AntDesign name='left'/> */}
-      
-      <View style={styles.imgContainer}>
-        <Image 
-        // className="h-100 w-100"
-          source={
-            require('../assets/appImages/2_reqotp.png')
-          } />
-      </View>
-
-      {/* <View style={styles.bottomContainer}>
-        <Text>hello</Text>
-      </View> */}
-
-      <OTP_Feild />
-     
-      
-    </View>
-    </ScrollView> 
-  )
-}
+};
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    // flex: 1,
-    // flexDirection:'column',
-    // justifyContent:'center',
-    // alignItems:'center',
-    // backgroundColor:Colors.PrimaryBlack,     //try applying height
-    // height:200,
-    //backgroundColor:'black'
+  container: {
+    flex: 1,
+    // justifyContent: 'center',
+    margin: 20,
+    paddingBottom:20,
   },
-  iconView: {
-    // flex:1,
-  },
+  Icon: {},
   header: {
-    // flex:1,
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'center'
   },
   h1: {
-    fontSize: 25,
+    fontSize: 15,
     fontFamily: 'Poppins',
-    fontWeight:'bold',
-    color:Colors.PrimaryBlack,
+    fontWeight: 'bold',
+    color: Colors.PrimaryBlack,
   },
   h2: {
     fontFamily: 'Poppins',
-    fontWeight:'normal',
-    color:Colors.SecondaryGrey,
+    fontWeight: 'normal',
+    color: Colors.SecondaryGrey,
   },
-  // bottomContainer: {
-  //   flex:1,
-  //   backgroundColor:'yellow'
-  // },
-  // iconContainer: {
-  //   flex:1,
-  //   backgroundColor:'white'
-  // },
   imgContainer: {
-    // flex:4,
-    marginTop: 20,
-    justifyContent: 'center',
-    alignItems:'center',
-    marginBottom: 20,
+        // justifyContent: 'center',
+        alignItems:'center',
+       
   },
   img: {
-    justifyContent: 'center',
-    alignContent: 'center',
-    // width: 210,
-    // height: 310,
-    width:'100%',
-    height:'100%',
-    resizeMode: "cover",
+        justifyContent: 'center',
+        alignContent: 'center',
+        width: 250,
+        height: 350,
+        // width:'100%',
+        // height:'100%',
+        resizeMode: "contain",
   },
-  OTP_FeildView: {
-    // flex:4,
+  midContainer: {
+    paddingTop: 50,
   },
-  otp: {
-    backgroundColor: Colors.PrimaryWhite,
-    height: 45,
-    borderRadius: 3,
-    borderColor: Colors.SecondaryGrey,
+  inputFields: {
+    // paddingTop: 30,
+    paddingBottom: 20,
+  },
+  numberContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    height: 40,
     borderWidth: 1,
-    marginHorizontal: 20,
-    justifyContent: 'center',
-    paddingLeft: 10,
+    borderColor: 'gray',
+    borderRadius: 5,
+  },
+  input: {
+    width: 200,
+    height: 40,
+    // borderColor: 'gray',
+    // borderWidth: 1,
+    // marginVertical: 10,
+    // paddingHorizontal: 10,
+  },
+  usernameContainer: {
+    height: 40,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 5,
   },
   buttonStyle: {
     height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
     color: Colors.PrimaryWhite,
     backgroundColor: Colors.PrimaryBlue,
     borderRadius: 10,
     textAlign: 'center',
     fontFamily: 'Poppins',
-    fontWeight:'bold',
+    fontWeight: 'bold',
     marginTop: 10,
-    marginHorizontal:20,
+    // marginHorizontal: 20,
     lineHeight: 40,
+    paddingBottom:10,
   },
+});
 
-})
-
-export default ReqOTP_C5
+export default ReqOTP;

@@ -47,6 +47,7 @@ __metadata:
     react-i18next: "npm:^14.0.0"
     react-native: "npm:0.73.1"
     react-native-dotenv: "npm:^3.4.9"
+    react-native-dropdown-picker: "npm:^5.4.6"
     react-native-image-crop-picker: "npm:^0.40.2"
     react-native-safe-area-context: "npm:^4.8.2"
     react-native-screens: "npm:^3.29.0"
@@ -9667,6 +9668,16 @@ __metadata:
   peerDependencies:
     "@babel/runtime": ^7.20.6
   checksum: 4d83c2ee25391df9338457327926fb2c521f4160f24fc9c7beaefa19d8b5c542085deb468a05b5996bbd94b5acb8c6c2f23a8fd529f888c12c5464c98d6cafe8
+  languageName: node
+  linkType: hard
+
+"react-native-dropdown-picker@npm:^5.4.6":
+  version: 5.4.6
+  resolution: "react-native-dropdown-picker@npm:5.4.6"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 29b29d6168dc71386a0fd9dc5dedebd23cbb7baa977e4f37f6ff6fd13a800628e73e6624d0563b7471cec9a5dd76e196aed0e41d2da4bac8abefacbd1f0eb347
   languageName: node
   linkType: hard
 

@@ -1,152 +1,77 @@
-// import React from 'react'
-// import { Image, StyleSheet, Text, View } from 'react-native'
-// import {SafeAreaProvider} from 'react-native-safe-area-context';
-
-// const C4 = () => {
-//   return (
-//     <View>
-//         <Image style={{
-//             width: 200,
-//             height:200
-//         }}
-//         source={
-//         require('../assets/appImages/1_signin.png')
-//        }/> 
-//       <Text>C4</Text>
-//     </View>
-//   )
-// }
-
-// const styles = StyleSheet.create({})
-
-// export default C4
-
-// import React from 'react';
-// import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-// import { Colors } from '../utils/Colors';
-
-// const HomeScreen: React.FC = () => {
-//   return (
-//     <View style={styles.container}>
-
-//       <View style={styles.container1}>
-//         <Image style={styles.img}
-//         source={
-//           require('./src/assets/appImages/1_signin.png')
-//         }/>
-//       </View>
-
-// <View style={styles.container2}>
-//       <View >
-//         <TouchableOpacity style={styles.container3}>
-//           <Text style={styles.buttonStyle}>Explore More</Text>
-//         </TouchableOpacity>
-//       </View>
-
-//       <View >
-//       <TouchableOpacity style={styles.container3}>
-//           <Text  style={styles.buttonStyle}>Sign In</Text>
-//         </TouchableOpacity>
-//       </View>
-// </View>
-
-
-//     </View>
-//   )
-// }
-
-// const styles = StyleSheet.create({
-//   container:{
-//     // flex:1,
-//     padding:8,
-//     backgroundColor:'white',
-//   },
-//   img:{
-//     justifyContent:'center',
-//     alignContent:'center',
-//     width:210,
-//     height:310,
-//     // paddingBottom:20,
-
-//   },
-//   container1:{
-//     marginTop:20,
-//     justifyContent:'center',
-//     alignItems:'center',
-//     marginBottom:20,
-//   },
-//   container2:{
-//     alignItems:'center',
-//     justifyContent:'center',
-//   },
-//   buttonStyle:{
-//     height:40,
-//     justifyContent:'center',
-//     alignItems:'center',
-//     color:Colors.PrimaryWhite,
-//     backgroundColor:Colors.PrimaryBlue,
-//     borderRadius:6,
-//     textAlign:'center',
-//     marginTop:10,
-//     lineHeight: 40,
-//   },
-//   container3:{
-//     width:200,
-//     height:50,
-//     // justifyContent:'flex-end',
-//     // backgroundColor:'#FFF',
-//     // borderRadius:6,
-//   },
-// });
-
-// export default C4;
-
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+// import { Image,Text } from '../components/rneui';
 import { Colors } from '../utils/Colors';
+import Icon from 'react-native-vector-icons/FontAwesome6';
+import { Button } from '@rneui/themed';
+import tailwindConfig from '../../tailwind.config';
+import classNames from 'classnames';
+import { ScrollView } from '../components/rneui';
 
 const SignIn_C4: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView>
+      <View style={styles.container}>
+        {/* className='h-500 bg-white p8' */}
 
+        <View style={styles.container1}>
+          {/* className="mt-20 flex justify-center items-center mb-20" */}
 
-      <View style={styles.container1}>
-        <Image style={styles.img}
-          source={
-            require('../assets/appImages/1_signin.png')
-          } />
-      </View>
-
-      <View style={styles.container2}>
-        <View >
-          <TouchableOpacity style={styles.container3}>
-            <Text style={styles.buttonStyle}>Explore More</Text>
-          </TouchableOpacity>
+          <Image style={styles.img}
+            source={
+              require('../assets/appImages/1_signin.png')
+            } />
         </View>
 
-        <View >
-          <TouchableOpacity style={styles.container3}>
-            <Text style={styles.buttonStyle}>Sign In</Text>
-          </TouchableOpacity>
+        <View style={styles.container2} >
+          {/* className='flex justify-center items-center w-210 h-310'  */}
+
+          <View >
+            <TouchableOpacity style={styles.container3}>
+              {/* className='w-200 h-50'  */}
+
+              <Text style={styles.buttonStyle}>
+                {/* className='h-40 flex justify-center items-center text-white bg-blue-500 rounded-full text-center mt-10 leading-40' */}
+
+                Explore More</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View >
+            <TouchableOpacity style={styles.container3}>
+              {/*  className='w-200 h-50' */}
+
+              <Text style={styles.buttonStyle}>
+                {/* className='h-40 flex justify-center items-center text-white bg-blue-500 rounded-full text-center mt-10 leading-40' */}
+                Sign In</Text>
+
+            </TouchableOpacity>
+          </View>
         </View>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 20 }}>
+          <Text>Already have an account?</Text>
+          <TouchableOpacity>
+            <Text style={styles.resendReset}>Login</Text>
+          </TouchableOpacity>
+
+        </View>
+
       </View>
-
-
-    </View>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    height:500,
+    height: 500,
     padding: 8,
     backgroundColor: 'white',
   },
   img: {
     justifyContent: 'center',
     alignContent: 'center',
-    width: 210,
-    height: 310,
+    width: 200,
+    height: 300,
     // paddingBottom:20,
 
   },
@@ -161,6 +86,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonStyle: {
+    fontFamily: 'Poppins',
+    fontWeight: 'bold',
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
@@ -177,6 +104,11 @@ const styles = StyleSheet.create({
     // justifyContent:'flex-end',
     // backgroundColor:'#FFF',
     // borderRadius:6,
+  },
+  resendReset: {
+    fontFamily: 'Poppins',
+    fontWeight: 'bold',
+    color: Colors.PrimaryYellow,
   },
 
 
