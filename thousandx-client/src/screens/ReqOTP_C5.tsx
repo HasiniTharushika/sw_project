@@ -11,8 +11,8 @@ import { Icon } from '@rneui/themed';
 function Arrow_Icon() {
   return (
     <View style={styles.iconView}>
-      {/* <Icon name={'arrow-forward'} color={Colors.PrimaryBlue} type='ionicon' /> */}
-      <TouchableOpacity className="ml-3 mr-2">
+      
+      <TouchableOpacity >
         <AntDesign
           name="arrowleft"
           size={25}
