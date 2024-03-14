@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, Button, Image } from 'react-native';
-import { ScrollView, TouchableOpacity } from '../../components/rneui';
+import { View, Text, TextInput, StyleSheet, Image } from 'react-native';
+import { ScrollView, TouchableOpacity ,Button} from '../../components/rneui';
 import { Colors } from '../../utils/Colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Form from '../../components/form';
 
 const resetNumber: React.FC = () => {
     const handleInputChange = (text: string, index: number) => {
@@ -15,6 +16,8 @@ const resetNumber: React.FC = () => {
         // can use the collected digits here
         // console.log('Digits submitted');
     };
+
+    const [form] = Form.useForm();
 
     return (
         <ScrollView>
@@ -33,20 +36,49 @@ const resetNumber: React.FC = () => {
                     <Text style={styles.heading}>Reset Mobile Number</Text>
                 </View>
 
-                <Text style={{ fontFamily: 'Poppins', fontSize:15, color: Colors.PrimaryBlack }}>Enter new mobile number</Text>
+                {/* <Text style={{ fontFamily: 'Poppins', fontSize:15, color: Colors.PrimaryBlack }}>Enter new mobile number</Text>
                 <View style={styles.otp}>
                     <TextInput style={{
                         fontSize: 15,
                     }}
                         placeholder='Type new mobile number'
                     />
+                </View> */}
+
+                <View>
+                    <Form
+                        form={form}
+                        onFinish={value => {
+                            // setRecoveryEmail(value.recoveryEmail)
+                        }}>
+                        <Form.Items
+                            schema={[
+                                {
+                                    id: 'resetMobileNo',
+                                    type: 'number',
+                                    name: 'Enter new mobile number',
+                                    props: { placeholder: 'Mobile number' },
+                                    options: {
+                                        rules: [
+                                            { required: true, message: 'Mobile number is required' },
+                                            {
+                                                validator:'phone',
+                                                message: 'Invalid mobile number',
+                                            },
+                                        ],
+                                    },
+                                },
+                            ]}
+                        />
+                    </Form>
+                    
                 </View>
 
                 <TouchableOpacity>
                     <Text style={styles.buttonStyle}>Reset</Text>
                 </TouchableOpacity>
 
-                <Text style={{color: Colors.PrimaryBlack ,fontFamily:'Poppins', fontSize: 15,marginVertical:15}}>A verification code has been sent to your new mobile number</Text>
+                <Text style={{ color: Colors.PrimaryBlack, fontFamily: 'Poppins', fontSize: 15, marginVertical: 15 }}>A verification code has been sent to your new mobile number</Text>
 
                 <View style={styles.inputContainer}>
                     {[...Array(4)].map((_, index) => (
@@ -68,7 +100,7 @@ const resetNumber: React.FC = () => {
                 </View>
 
                 <View style={{ marginTop: 20, marginBottom: 10 }}>
-                    <TouchableOpacity>
+                    <TouchableOpacity  onPress={() => form.submit()}>
                         <Text style={styles.buttonStyle}>Verify</Text>
                     </TouchableOpacity>
                 </View>
@@ -87,7 +119,7 @@ const styles = StyleSheet.create({
     },
     Icon: {},
     textContainer: {
-        marginTop:50,
+        marginTop: 50,
         marginBottom: 15,
     },
     imgContainer: {
@@ -119,7 +151,7 @@ const styles = StyleSheet.create({
     },
     normalText: {
         fontFamily: 'Poppins',
-        fontSize:15,
+        fontSize: 15,
         fontWeight: 'normal',
         color: Colors.PrimaryBlack,
     },
@@ -158,7 +190,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         textAlign: 'center',
         fontFamily: 'Poppins',
-        fontSize:17,
+        fontSize: 17,
         fontWeight: 'bold',
         marginVertical: 30,
         lineHeight: 40,

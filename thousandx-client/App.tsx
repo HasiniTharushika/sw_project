@@ -46,7 +46,7 @@ const App = () => {
 
     //   {/* <Verify_Recovery_Email/> */}
 
-    //   {/* <Reset_Mobile_Number/> */}
+    //   <Reset_Mobile_Number/>
 
     // </View>
   )

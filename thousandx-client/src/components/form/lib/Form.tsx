@@ -13,6 +13,7 @@ import {SchemaFormConfigContext} from './SchemaFormConfig';
 import AntdForm, {FormInstance, FormProps} from 'rc-field-form';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useFormErrors} from '../../../utils/CommonHooks';
+import { Colors } from '../../../utils/Colors';
 
 const styles = StyleSheet.create({
   formItem: {

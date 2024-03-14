@@ -3,22 +3,18 @@ import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
 import { Colors } from '../../utils/Colors';
 import { ScrollView, TouchableOpacity } from '../../components/rneui';
 import Icon from 'react-native-vector-icons/AntDesign';
-// import Form from '../../components/form';
+import Form from '../../components/form';
 
 //navigation
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootStackParamList } from "../../../App"
 
-// type iconProps = PropsWithChildren<{
-//   name: string,
-// }>
 
 type add_Email_Props = NativeStackScreenProps<RootStackParamList, 'Add_Email'>
 
-
 const Add_Email = ({ navigation }: add_Email_Props) => {
 
-  // const [form] = Form.useForm();
+  const [form] = Form.useForm();
   // const [recoveryEmail, setRecoveryEmail] = useState('')
 
   return (
@@ -33,7 +29,8 @@ const Add_Email = ({ navigation }: add_Email_Props) => {
         </View>
 
         <View style={styles.header}>
-          <Text style={styles.h1}>We need to verify your identity</Text>
+          <Text style={styles.h1}
+          >We need to verify your identity</Text>
         </View>
 
         <View style={styles.imgContainer}>
@@ -53,19 +50,19 @@ const Add_Email = ({ navigation }: add_Email_Props) => {
 
       {/* adding email */}
 
-      <Text style={{fontFamily: 'Poppins', color:Colors.PrimaryBlack, fontSize:15}}>Recovery email</Text>
+      {/* <Text style={{fontFamily: 'Poppins', color:Colors.PrimaryBlack, fontSize:15}}>Recovery email</Text>
       <View style={styles.otp}>
       <TextInput style={{
           fontSize: 15,
         }} 
         placeholder='Type email'
         />
-      </View>
+      </View> */}
 
       
 
       {/* validating form */}
-        {/* <View>
+        <View>
           <Form
             form={form}
             onFinish={value => {
@@ -92,14 +89,17 @@ const Add_Email = ({ navigation }: add_Email_Props) => {
               ]}
             />
           </Form>
-          </View> */}
+          </View>
 
         
 
 
         <View>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Verify_Recovery_Email")}
+            onPress={() => {
+              navigation.navigate("Verify_Recovery_Email")
+              form.submit()
+            }}
           >
             <Text style={styles.buttonStyle}>Continue</Text>
           </TouchableOpacity>
